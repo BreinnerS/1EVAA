@@ -3,20 +3,20 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class cumple_repository {
+public class repositorio {
 
-    private List<cumple_agenda> LISTA = new ArrayList<>();
+    private List<agenda> LISTA = new ArrayList<>();
 
-    public List<cumple_agenda> GetLista() {
+    public List<agenda> GetLista() {
         return LISTA;
     }
 
-    public void AddCumple(cumple_agenda cumple) {
+    public void AddCumple(agenda cumple) {
         LISTA.add(cumple);
     }
 
-    public cumple_agenda BuscarPorNombre(String nombre) {
-        for (cumple_agenda c : LISTA) {
+    public agenda BuscarPorNombre(String nombre) {
+        for (agenda c : LISTA) {
             if (c.GetNombre().equalsIgnoreCase(nombre)) {
                 return c;
             }
@@ -24,9 +24,9 @@ public class cumple_repository {
         return null;
     }
 
-    public List<cumple_agenda> BuscarPorDia(int dia) {
-        List<cumple_agenda> resultado = new ArrayList<>();
-        for (cumple_agenda c : LISTA) {
+    public List<agenda> BuscarPorDia(int dia) {
+        List<agenda> resultado = new ArrayList<>();
+        for (agenda c : LISTA) {
             if (c.GetDia() == dia) {
                 resultado.add(c);
             }
@@ -35,7 +35,7 @@ public class cumple_repository {
     }
 
     public boolean EliminarPorNombre(String nombre) {
-        cumple_agenda encontrado = BuscarPorNombre(nombre);
+        agenda encontrado = BuscarPorNombre(nombre);
         if (encontrado != null) {
             LISTA.remove(encontrado);
             return true;

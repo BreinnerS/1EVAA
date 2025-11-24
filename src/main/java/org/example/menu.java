@@ -3,11 +3,11 @@ package org.example;
 import java.util.List;
 import java.util.Scanner;
 
-public class main {
+public class menu {
 
     public static void main(String[] args) {
 
-        cumple_repository REPO = new cumple_repository();
+        repositorio REPO = new repositorio();
         Scanner SC = new Scanner(System.in);
         boolean SALIR = false;
 
@@ -27,11 +27,11 @@ public class main {
             switch (opcion) {
 
                 case "1":
-                    List<cumple_agenda> lista = REPO.GetLista();
+                    List<agenda> lista = REPO.GetLista();
                     if (lista.isEmpty()) {
                         System.out.println("Vacío.");
                     } else {
-                        for (cumple_agenda c : lista) {
+                        for (agenda c : lista) {
                             System.out.println(c.GetNombre() + ": " + c.GetDia() + "/" + c.GetMes());
                         }
                     }
@@ -40,12 +40,12 @@ public class main {
                 case "2":
                     System.out.print("Día: ");
                     int DIA = Integer.parseInt(SC.nextLine());
-                    List<cumple_agenda> porDia = REPO.BuscarPorDia(DIA);
+                    List<agenda> porDia = REPO.BuscarPorDia(DIA);
 
                     if (porDia.isEmpty()) {
                         System.out.println("Sin resultados.");
                     } else {
-                        for (cumple_agenda c : porDia) {
+                        for (agenda c : porDia) {
                             System.out.println(c.GetNombre() + ": " + c.GetDia() + "/" + c.GetMes());
                         }
                     }
@@ -54,7 +54,7 @@ public class main {
                 case "3":
                     System.out.print("Nombre: ");
                     String NOMBRE_BUSCAR = SC.nextLine();
-                    cumple_agenda encontrado = REPO.BuscarPorNombre(NOMBRE_BUSCAR);
+                    agenda encontrado = REPO.BuscarPorNombre(NOMBRE_BUSCAR);
 
                     if (encontrado == null) {
                         System.out.println("No encontrado.");
@@ -72,7 +72,7 @@ public class main {
                     System.out.print("Mes: ");
                     int M = Integer.parseInt(SC.nextLine());
 
-                    REPO.AddCumple(new cumple_agenda(NOMBRE, D, M));
+                    REPO.AddCumple(new agenda(NOMBRE, D, M));
                     break;
 
                 case "5":
